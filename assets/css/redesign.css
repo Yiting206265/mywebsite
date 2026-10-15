@@ -377,92 +377,16 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   border-radius: 6px;
   background: #fff;
 }
-.binary-art {
-  position: relative;
-  min-height: 100%;
+.press-feature-visual {
+  margin: 0;
   overflow: hidden;
-  background:
-    radial-gradient(circle at 18% 16%, rgba(246, 245, 240, 0.65) 0 1px, transparent 1.5px),
-    radial-gradient(circle at 74% 30%, rgba(246, 245, 240, 0.45) 0 1px, transparent 1.5px),
-    radial-gradient(circle at 42% 76%, rgba(246, 245, 240, 0.38) 0 1px, transparent 1.5px),
-    radial-gradient(circle at 88% 84%, rgba(246, 245, 240, 0.5) 0 1px, transparent 1.5px),
-    linear-gradient(145deg, #16181d, #090a0d);
+  background: var(--void);
   border-right: 1px solid var(--line);
 }
-.binary-art::before,
-.binary-art::after {
-  content: "";
-  position: absolute;
-  inset: 16% -36%;
-  border: 1px solid rgba(246, 245, 240, 0.16);
-  border-radius: 50%;
-  transform: rotate(-18deg);
-}
-.binary-art::after {
-  inset: 30% -12%;
-  border-color: rgba(63, 143, 138, 0.35);
-  transform: rotate(24deg);
-}
-.binary-star,
-.binary-planet {
-  position: absolute;
-  display: block;
-  border-radius: 50%;
-}
-.binary-star-a {
-  top: 39%;
-  left: 37%;
-  width: 44px;
-  height: 44px;
-  background: #f0b361;
-  box-shadow: 0 0 22px 7px rgba(240, 179, 97, 0.28), 0 0 70px 12px rgba(217, 96, 63, 0.18);
-}
-.binary-star-b {
-  top: 57%;
-  left: 59%;
-  width: 28px;
-  height: 28px;
-  background: #db7c4d;
-  box-shadow: 0 0 18px 5px rgba(219, 124, 77, 0.28);
-}
-.binary-orbit {
-  position: absolute;
-  display: block;
-  border: 1px solid rgba(246, 245, 240, 0.2);
-  border-radius: 50%;
-}
-.binary-orbit-a {
-  top: 32%;
-  left: 23%;
-  width: 58%;
-  height: 36%;
-  transform: rotate(25deg);
-}
-.binary-orbit-b {
-  top: 21%;
-  left: 12%;
-  width: 78%;
-  height: 60%;
-  border-color: rgba(63, 143, 138, 0.38);
-  transform: rotate(-14deg);
-}
-.binary-planet {
-  top: 30%;
-  right: 18%;
-  width: 9px;
-  height: 9px;
-  background: var(--blueshift);
-  box-shadow: 0 0 12px 3px rgba(63, 143, 138, 0.45);
-}
-.system-label {
-  position: absolute;
-  left: 28px;
-  bottom: 24px;
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: rgba(246, 245, 240, 0.55);
+.press-feature-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .press-feature-copy { padding: clamp(34px, 5vw, 64px); }
 .press-meta {
@@ -594,16 +518,17 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   font-size: clamp(18px, 2vw, 22px);
   color: rgba(246, 245, 240, 0.68);
 }
-.article-visual-wrap { margin-top: -135px; }
-.article-system-art {
-  height: 410px;
-  min-height: 0;
-  border: 1px solid rgba(246, 245, 240, 0.12);
+.article-poster-wrap { margin-top: -135px; }
+.article-poster {
+  max-width: 660px;
+  margin: 0 auto;
+  overflow: hidden;
+  border: 1px solid rgba(246, 245, 240, 0.18);
   border-radius: 6px;
+  background: var(--void);
+  box-shadow: 0 30px 80px -45px rgba(0, 0, 0, 0.6);
 }
-.article-system-art .binary-star-a { top: 42%; left: 42%; width: 58px; height: 58px; }
-.article-system-art .binary-star-b { top: 58%; left: 57%; width: 36px; height: 36px; }
-.article-system-art .binary-planet { top: 23%; right: 24%; }
+.article-poster img { width: 100%; height: auto; }
 .article-layout {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 280px;
@@ -670,7 +595,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 
 @media (max-width: 900px) {
   .press-feature { grid-template-columns: 1fr; }
-  .binary-art { min-height: 340px; border-right: 0; border-bottom: 1px solid var(--line); }
+  .press-feature-visual { border-right: 0; border-bottom: 1px solid var(--line); }
+  .press-feature-visual img { height: auto; }
   .press-coverage-head { grid-template-columns: 1fr; gap: 12px; }
   .press-grid { grid-template-columns: 1fr; }
   .article-layout { grid-template-columns: 1fr; gap: 60px; }
@@ -680,14 +606,11 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 @media (max-width: 640px) {
   .coverage-links { grid-template-columns: 1fr; }
   .coverage-links li:nth-child(odd) { border-right: 0; }
-  .binary-art { min-height: 280px; }
   .press-feature-copy { padding: 30px 24px 34px; }
   .press-feature-copy h3 { max-width: none; }
   .article-header { padding: 110px 0 150px; }
   .article-back { margin-bottom: 46px; }
-  .article-visual-wrap { margin-top: -90px; }
-  .article-system-art { height: 270px; min-height: 0; }
-  .article-system-art .system-label { left: 20px; bottom: 18px; }
+  .article-poster-wrap { margin-top: -90px; }
   .article-layout { padding-top: 64px; padding-bottom: 80px; }
   .article-prose p { font-size: 16px; }
   .article-prose .article-lead { font-size: 21px; }
